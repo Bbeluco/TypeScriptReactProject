@@ -1,8 +1,13 @@
 import React from "react";
 
 class Botao extends React.Component {
+
     render(): React.ReactNode {
-        return <button>BOTAO</button>
+        const backgroundColor = "red";
+        const styles = {
+            backgroundColor
+        }
+        return <button style={styles}>BOTAO</button>
     }
 }
 
