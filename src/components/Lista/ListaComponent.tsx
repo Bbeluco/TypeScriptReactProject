@@ -1,16 +1,22 @@
 function Lista(){
+    const tarefas = [{
+        nome: "React",
+        tempo: "02:00:00"
+    },
+    {
+        nome: "Typescript",
+        tempo: "01:00:00"
+    }]
     return (
         <aside>
             <label>Lista de estudos</label>
             <ul>
-                <li>
-                    <h3>React</h3>
-                    <span>02:00:00</span>
-                </li>
-                <li>
-                    <h3>JavaScript</h3>
-                    <span>01:00:00</span>
-                </li>
+                {tarefas.map((item, index) => (
+                    <li key={index}>
+                        <h3>{item.nome}</h3>
+                        <span>{item.tempo}</span>
+                    </li>
+                ))}
             </ul>
         </aside>
     )
