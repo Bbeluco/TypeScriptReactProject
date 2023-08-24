@@ -2,6 +2,7 @@ import React from 'react';
 import { Itarefa } from '../../types/Itarefas';
 import Botao from '../Botao/buttonComponent';
 import style from './Formulario.module.scss';
+import { v4 as uuidv4 } from 'uuid';
 
 class Formulario extends React.Component<{
     setTarefas: React.Dispatch<React.SetStateAction<Itarefa[]>>
@@ -15,7 +16,16 @@ class Formulario extends React.Component<{
     verificarAdicaoLista(evento: React.FormEvent<HTMLFormElement>){
         evento.preventDefault();
 
-        this.props.setTarefas(tarefasAntigas => [...tarefasAntigas, {...this.state}])
+        this.props.setTarefas(tarefasAntigas => [
+            ...tarefasAntigas, 
+            {
+                ...this.state,
+                selecionado: false,
+                completado: false,
+                id: uuidv4()
+            }
+            
+        ])
         console.log(this.state);
     }
 
