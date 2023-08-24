@@ -1,8 +1,11 @@
 import React from 'react';
+import { Itarefa } from '../../types/Itarefas';
 import Botao from '../Botao/buttonComponent';
 import style from './Formulario.module.scss';
 
-class Formulario extends React.Component {
+class Formulario extends React.Component<{
+    setTarefas: React.Dispatch<React.SetStateAction<Itarefa[]>>
+  }> {
     private placeholderTarefaText: string = 'O que voce deseja estudar?'
     state = {
         nome: "",
@@ -11,6 +14,8 @@ class Formulario extends React.Component {
 
     verificarAdicaoLista(evento: React.FormEvent<HTMLFormElement>){
         evento.preventDefault();
+
+        this.props.setTarefas(tarefasAntigas => [...tarefasAntigas, {...this.state}])
         console.log(this.state);
     }
 
