@@ -3,15 +3,20 @@ import Item from './ItemComponent';
 import style from './Lista.module.scss';
 import { Itarefa } from '../../types/Itarefas';
 
-function Lista(props: { tarefas: Itarefa[] }){
-    const { tarefas } = props;
+interface Props {
+    tarefas: Itarefa[],
+    selecionaTarefa: (setTarefas: Itarefa) => void
+}
+
+function Lista(props: Props){
+    const { tarefas, selecionaTarefa } = props;
     
     return (
         <aside className={style.listaTarefas}>
             <h2>Lista de estudos</h2>
             <ul>
                 {tarefas.map((item, index) => (
-                    <Item key={index} {...item}/>
+                    <Item selecionaTarefa={selecionaTarefa} key={index} {...item}/>
                 ))}
             </ul>
         </aside>
