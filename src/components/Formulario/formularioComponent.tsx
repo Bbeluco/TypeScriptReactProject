@@ -26,7 +26,6 @@ class Formulario extends React.Component<{
             }
             
         ])
-        console.log(this.state);
     }
 
     render(): React.ReactNode {
