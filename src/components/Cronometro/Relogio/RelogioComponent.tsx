@@ -5,7 +5,7 @@ interface IRelogio {
 }
 
 function Relogio({ tempo = 0 }: IRelogio){
-    const minutos = Math.floor(tempo) / 60;
+    const minutos = Math.floor(tempo / 60);
     const segundos = tempo % 60;
 
     const [minutosDezena, minutosUnidade] = String(minutos).padStart(2, '0');

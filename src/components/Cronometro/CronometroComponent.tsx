@@ -19,13 +19,22 @@ function Cronometro({tarefaSelecionada}: Props){
     }, [tarefaSelecionada]);
     
 
+    function contagemRegressiva(contador: number = 0): void{
+        if(contador > 0){
+            setTimeout(() => {
+                setTempo(contador - 1);
+                return contagemRegressiva(contador - 1);
+            }, 1000);
+        }
+    }
+
     return (
         <div className={style.cronometro}>
             <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
             <div className={style.relogioWrapper}>
                 <Relogio tempo={tempo}/>
             </div>
-            <Botao text="Comecar"/>
+            <Botao onClick={() => contagemRegressiva(tempo)} text="Comecar"/>
         </div>
     )
 }
