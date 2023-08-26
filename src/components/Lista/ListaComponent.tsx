@@ -5,7 +5,7 @@ import { Itarefa } from '../../types/Itarefas';
 
 interface Props {
     tarefas: Itarefa[],
-    selecionaTarefa: (setTarefas: Itarefa) => void
+    selecionaTarefa: (setTarefas: Itarefa) => void,
 }
 
 function Lista(props: Props){
