@@ -10,7 +10,7 @@ interface Props {
 }
 
 function Cronometro({tarefaSelecionada}: Props){
-    const [tempo, setTempo] = useState<Number>();
+    const [tempo, setTempo] = useState<number>();
 
     useEffect(() => {
         if(tarefaSelecionada?.tempo){
@@ -23,7 +23,7 @@ function Cronometro({tarefaSelecionada}: Props){
         <div className={style.cronometro}>
             <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
             <div className={style.relogioWrapper}>
-                <Relogio />
+                <Relogio tempo={tempo}/>
             </div>
             <Botao text="Comecar"/>
         </div>
